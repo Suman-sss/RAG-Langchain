@@ -1,0 +1,5 @@
+MFA Reset SOP
+
+When a user changes a password or switches devices, MFA may require re-enrollment. If the login screen shows that the device is not linked or the token is expired, instruct the user to scan the QR code again and complete MFA registration.
+
+If re-registration fails more than once, escalate the issue to identity support.

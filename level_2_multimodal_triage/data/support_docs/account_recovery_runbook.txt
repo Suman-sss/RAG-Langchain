@@ -1,0 +1,5 @@
+Account Recovery Runbook
+
+If an account is locked after repeated failed login attempts, confirm the lock reason and guide the user through the approved identity verification flow.
+
+After identity verification, initiate the password reset or unlock process. If the account belongs to a privileged role, notify IT Operations before restoring access.

@@ -1,0 +1,4 @@
+Issue Category: device_provisioning
+Likely Cause: Device handover is delayed and the provisioning queue has entered an escalation state.
+Recommended Next Step: Route the case to the IT service desk and prioritize the provisioning request because onboarding is blocked.
+Key Sources: device_provisioning_workflow.txt, laptop_provisioning_queue.bmp

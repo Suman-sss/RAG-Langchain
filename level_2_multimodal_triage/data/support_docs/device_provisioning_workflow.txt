@@ -1,0 +1,5 @@
+Device Provisioning Workflow
+
+New hires should receive device allocation before the end of the first week. If laptop handover is delayed and the queue status shows escalation or waiting on an asset tag beyond day two, the ticket should be reviewed by the IT service desk.
+
+Escalated provisioning tickets should be prioritized if the employee cannot complete onboarding activities.

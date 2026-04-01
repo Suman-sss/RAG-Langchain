@@ -1,0 +1,3 @@
+Org Chart Description
+
+The image shows the enterprise reporting structure. Human Resources reports to the Chief People Officer. IT Operations reports to the Head of Technology Services. Engineering reports to the VP of Engineering. The IT Service Desk sits under IT Operations and supports employee access, device setup, and account recovery.

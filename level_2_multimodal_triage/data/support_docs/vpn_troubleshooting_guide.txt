@@ -1,0 +1,7 @@
+VPN Troubleshooting Guide
+
+If a user cannot connect to VPN after a password reset, first confirm whether multi-factor authentication was re-registered successfully. Many VPN access failures after password changes are caused by stale or expired MFA registration.
+
+Recommended first step: ask the user to sign in again, re-register MFA if prompted, and retry the VPN login.
+
+If the issue persists after MFA re-registration, route the case to the IT service desk for deeper network or account validation.

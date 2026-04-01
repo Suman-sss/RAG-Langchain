@@ -1,0 +1,12 @@
+Ticket ID: INC-2004
+Title: New hire laptop not handed over by day three
+Reported By: Mira K
+Priority: Medium
+Team: Product Management
+Attached Image: laptop_provisioning_queue.bmp
+
+Description:
+A new joiner still has not received a laptop by day three. The attached operations board screenshot shows the ticket in an escalate-to-IT-desk status.
+
+Impact:
+The employee cannot complete onboarding tasks or access internal systems.

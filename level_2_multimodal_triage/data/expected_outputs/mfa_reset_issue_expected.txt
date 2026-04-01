@@ -1,0 +1,4 @@
+Issue Category: mfa_issue
+Likely Cause: The device is not linked and MFA re-enrollment is required after the password change.
+Recommended Next Step: Ask the user to scan the QR code again and complete MFA registration. Escalate to identity support if it fails repeatedly.
+Key Sources: mfa_reset_sop.txt, mfa_setup_failure.bmp

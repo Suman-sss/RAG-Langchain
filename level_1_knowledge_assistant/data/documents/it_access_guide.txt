@@ -1,0 +1,7 @@
+IT Access Guide
+
+Employees receive their primary email account on day one after identity verification is completed. Multi-factor authentication must be enabled during the first login.
+
+VPN access is required for internal systems outside the office network. Access requests for engineering repositories, dashboards, or admin tools must be approved by the reporting manager.
+
+Lost or locked devices must be reported immediately to the IT service desk. Password reset requests require verification through the approved identity process.

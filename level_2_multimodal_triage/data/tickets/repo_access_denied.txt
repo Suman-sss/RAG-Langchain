@@ -1,0 +1,12 @@
+Ticket ID: INC-2005
+Title: Repository access denied after onboarding completion
+Reported By: Kavya R
+Priority: Medium
+Team: Engineering
+Attached Image: None
+
+Description:
+The user completed onboarding and received laptop and VPN access, but still cannot access the engineering repository. The user says the repository permission page returns an access denied message.
+
+Impact:
+The engineer cannot pull project code or begin assigned development tasks.

@@ -1,0 +1,10 @@
+# Level 1 dependencies will be added manually during the guided build.
+# We keep this file intentionally minimal for learning.
+langchain
+langchain-community
+langchain-ollama
+langchain-chroma
+langchain-text-splitters
+chromadb
+python-dotenv
+pydantic

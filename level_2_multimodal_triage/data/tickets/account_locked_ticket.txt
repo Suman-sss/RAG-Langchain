@@ -1,0 +1,12 @@
+Ticket ID: INC-2003
+Title: Account locked after repeated login attempts
+Reported By: Arjun S
+Priority: High
+Team: Sales Operations
+Attached Image: account_locked_alert.bmp
+
+Description:
+The user reports that the account was locked after several unsuccessful login attempts. The security dashboard screenshot indicates suspended access and points to the identity reset process.
+
+Impact:
+The user is blocked from CRM access and cannot continue customer follow-ups.

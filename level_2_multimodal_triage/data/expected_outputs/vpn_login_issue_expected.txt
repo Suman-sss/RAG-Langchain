@@ -1,0 +1,4 @@
+Issue Category: vpn_access
+Likely Cause: MFA token expired or MFA needs to be re-registered after password reset.
+Recommended Next Step: Ask the user to re-register MFA and retry VPN login. Escalate to the IT service desk if the issue persists.
+Key Sources: vpn_troubleshooting_guide.txt, mfa_reset_sop.txt, vpn_login_error.bmp

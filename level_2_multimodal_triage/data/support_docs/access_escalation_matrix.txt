@@ -1,0 +1,5 @@
+Access Escalation Matrix
+
+Repository access issues should first be validated against the user's approved onboarding access list. If VPN and laptop setup are complete but repository permissions are missing, the case should be routed to the engineering access admin or the designated platform support group.
+
+The hiring manager must confirm role-based access requirements for engineering repositories.

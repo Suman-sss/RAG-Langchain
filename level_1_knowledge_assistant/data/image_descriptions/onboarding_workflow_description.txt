@@ -1,0 +1,3 @@
+Onboarding Workflow Description
+
+The onboarding workflow image shows five steps. Step 1 is identity verification. Step 2 is laptop allocation. Step 3 is email and VPN activation. Step 4 is HR orientation. Step 5 is manager-led role onboarding. If laptop allocation fails, the flow routes the employee to the IT service desk escalation step.

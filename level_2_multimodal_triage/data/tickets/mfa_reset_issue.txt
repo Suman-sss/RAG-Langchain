@@ -1,0 +1,12 @@
+Ticket ID: INC-2002
+Title: MFA setup failing after password change
+Reported By: Neha P
+Priority: Medium
+Team: Finance
+Attached Image: mfa_setup_failure.bmp
+
+Description:
+The user changed the account password and now cannot complete MFA setup on the new device. The screenshot indicates that the device is not linked and asks the user to scan a QR code.
+
+Impact:
+The user cannot complete secure login for finance systems.

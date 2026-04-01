@@ -1,0 +1,12 @@
+Ticket ID: INC-2001
+Title: Unable to login to VPN after password reset
+Reported By: Rahul K
+Priority: High
+Team: Engineering
+Attached Image: vpn_login_error.bmp
+
+Description:
+The user reset the password this morning and is now unable to connect to VPN from home. The screenshot shows a VPN login failure and the user says the issue started immediately after the password reset.
+
+Impact:
+The user cannot access internal engineering systems outside the office network.

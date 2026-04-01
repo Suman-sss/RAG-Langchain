@@ -1,0 +1,4 @@
+Issue Category: repository_access
+Likely Cause: Required engineering repository permissions were not provisioned even though onboarding is otherwise complete.
+Recommended Next Step: Validate the approved access list and route the case to the engineering access admin or platform support group.
+Key Sources: access_escalation_matrix.txt

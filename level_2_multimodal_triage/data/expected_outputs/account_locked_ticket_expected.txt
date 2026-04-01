@@ -1,0 +1,4 @@
+Issue Category: account_recovery
+Likely Cause: The account was locked after repeated failed login attempts.
+Recommended Next Step: Guide the user through identity verification, then initiate the approved unlock or reset process.
+Key Sources: account_recovery_runbook.txt, account_locked_alert.bmp

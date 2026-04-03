@@ -1,78 +1,78 @@
 # Enterprise Operations Intelligence Platform
 
-This repository is a staged, architecture-first learning project for building enterprise-grade RAG, multimodal retrieval, and agentic AI systems with a local-first and cost-conscious approach.
+This repository is an architecture-first learning project for building enterprise-grade RAG systems with a local-first and cost-conscious stack.
 
-The project is intentionally structured like a real enterprise AI program instead of a collection of disconnected demos. Each level introduces a meaningful business use case, a stronger architecture, and a more production-minded way of thinking.
+Right now this repo contains two completed stages:
+
+1. `Level 1: Enterprise Knowledge Assistant`
+2. `Level 2: Multimodal Support Triage Copilot`
+
+The previously planned Level 3 placeholder has been intentionally removed from this repository. The next advanced project will be built as a separate repository so this repo stays clean and easy to understand as a two-level learning journey.
 
 ## Current Status
 
-What has been built so far:
+### Level 1: Enterprise Knowledge Assistant
 
-1. `Level 1: Enterprise Knowledge Assistant`
-- working LangChain-based RAG pipeline
-- local Ollama generation and embeddings
+Built and working:
+
+- LangChain-based RAG pipeline
+- Ollama for generation and embeddings
 - Chroma vector store
 - source-grounded answers
-- modular code split into config, loaders, splitter, embeddings, vector store, retriever, prompt, chain, and main orchestration
+- modular code split into configuration, ingestion, splitting, embeddings, vector store, retrieval, prompting, chaining, and orchestration
 
-2. `Level 2: Multimodal Support Triage Copilot`
-- working intermediate multimodal pipeline
+### Level 2: Multimodal Support Triage Copilot
+
+Built and working:
+
 - ticket ingestion
-- support document ingestion
+- support-document ingestion
 - raw image ingestion
 - OCR extraction using Tesseract
-- unified vector store across support docs, ticket text, and OCR-derived text
+- multimodal retrieval across tickets, support docs, and OCR-derived text
 - issue classification
-- structured triage recommendation generation
-- baseline output evaluation against expected results
+- structured triage response generation
+- deterministic source attribution
+- field-wise and overlap-aware evaluation
 
-3. `Level 3: Agentic Incident Resolution Orchestrator`
-- not implemented yet
-- planned for later evolution into workflow-oriented and LangGraph-based orchestration
+## Why This Repository Exists
 
-## Why This Project Exists
+The goal of this repository is not just to make a demo work.
 
-The goal of this repository is not only to "make something work."
-It is to learn how enterprise AI systems are actually designed:
+It is meant to show how enterprise AI systems are built step by step:
 
-- how data is organized
-- how retrieval works in practice
-- how multimodal pipelines bridge images into text retrieval
-- how classification and recommendation differ from simple Q&A
-- how evaluation should be introduced early
-- how to build in small, meaningful architecture layers
+- data organization
+- modular architecture
+- retrieval design
+- source grounding
+- multimodal evidence handling
+- workflow-oriented output design
+- evaluation maturity
 
-This repo is especially designed to prepare for:
+This repo is especially useful for:
 
 - enterprise client discussions
-- AI/ML system design rounds
-- RAG and multimodal interview questions
-- production-minded project explanations
+- AI/ML interviews
+- solution architecture rounds
+- explaining RAG decisions clearly with real code
 
-## Project Structure
+## Repository Structure
 
 ```text
 rag-langchain/
 ├── README.md
 ├── docs/
-│   ├── platform-overview.md
-│   └── architecture-level-1.md
+│   ├── architecture-level-1.md
+│   └── platform-overview.md
 ├── level_1_knowledge_assistant/
-├── level_2_multimodal_triage/
-├── level_3_incident_orchestrator/
-├── shared/
-└── infra/
+└── level_2_multimodal_triage/
 ```
 
 This structure is intentional.
-It separates:
 
-- platform-level documentation
-- level-specific implementations
-- shared reusable assets
-- future infrastructure concerns
-
-That makes the repository look and behave more like a professional project.
+- `docs/` holds platform and architecture notes
+- `level_1_knowledge_assistant/` holds the foundational RAG project
+- `level_2_multimodal_triage/` holds the stronger multimodal and workflow-oriented project
 
 ## Level 1: Enterprise Knowledge Assistant
 
@@ -82,23 +82,13 @@ Employees often need answers from:
 
 - onboarding guides
 - HR policies
-- IT access documents
+- IT access guides
 - reimbursement rules
-- internal process references
+- internal knowledge documents
 
-Instead of searching manually through multiple documents, Level 1 provides a grounded knowledge assistant.
+Instead of manually searching through files, Level 1 provides a grounded enterprise knowledge assistant.
 
-### What We Built
-
-Level 1 uses:
-
-- LangChain
-- Ollama
-- Chroma
-- local text documents
-- image-derived text descriptions
-
-The pipeline:
+### Level 1 Architecture
 
 ```text
 Documents + Image Descriptions
@@ -109,82 +99,74 @@ Documents + Image Descriptions
 -> Retriever
 -> Prompt
 -> LLM
--> Grounded Answer with Sources
+-> Answer with Sources
 ```
 
-### What It Teaches
+### What Level 1 Teaches
 
 - RAG fundamentals
 - document ingestion
 - chunking
 - embeddings
-- vector store usage
-- prompt grounding
-- source citation
-- why retrieval quality matters
+- vector-store usage
+- retrieval grounding
+- prompt design basics
+- source citation basics
 
-### Important Design Choice
+### Important Design Choice in Level 1
 
-Level 1 used image-description text files rather than raw images.
+Level 1 uses image-description text files rather than raw image OCR.
 
-Why?
-
-Because Level 1 was meant to teach the retrieval architecture first, without introducing OCR complexity too early.
-
-That let us understand the basic RAG pipeline cleanly before making it truly multimodal.
+That was intentional.
+It let us learn the retrieval pipeline first without introducing OCR complexity too early.
 
 ## Level 2: Multimodal Support Triage Copilot
 
 ### Business Use Case
 
-Support teams often work with mixed evidence:
+Support operations rarely depend on one source of truth.
+Real triage often needs:
 
-- support tickets
-- SOPs and runbooks
-- screenshots
-- dashboard alerts
-- operational guidance
+- a support ticket
+- one or more runbooks or SOPs
+- a screenshot or alert image
+- a recommended operational next step
 
-A good support AI system should not only answer questions.
-It should:
+Level 2 was built to reflect that reality.
 
-- identify the issue type
-- retrieve relevant support knowledge
-- use image evidence
-- recommend the next operational step
+This is no longer simple document Q&A.
+It is a support-triage workflow with mixed evidence.
 
-That is what Level 2 introduces.
+## Level 2 Data
 
-### Data Used in Level 2
+### Ticket Files
 
-Level 2 currently contains:
+- `vpn_login_issue.txt`
+- `mfa_reset_issue.txt`
+- `account_locked_ticket.txt`
+- `laptop_delay_ticket.txt`
+- `repo_access_denied.txt`
 
-1. `Ticket Files`
-- VPN login issue
-- MFA reset issue
-- account locked issue
-- laptop provisioning delay
-- repository access denied
+### Support Documents
 
-2. `Support Documents`
-- VPN troubleshooting guide
-- MFA reset SOP
-- account recovery runbook
-- device provisioning workflow
-- access escalation matrix
+- `vpn_troubleshooting_guide.txt`
+- `mfa_reset_sop.txt`
+- `account_recovery_runbook.txt`
+- `device_provisioning_workflow.txt`
+- `access_escalation_matrix.txt`
 
-3. `Raw Image Files`
-- VPN error screenshot
-- MFA setup failure screenshot
-- account locked dashboard screenshot
-- laptop provisioning queue screenshot
+### Raw Images
 
-4. `Expected Outputs`
-- reference triage outputs used for baseline evaluation
+- `vpn_login_error.bmp`
+- `mfa_setup_failure.bmp`
+- `account_locked_alert.bmp`
+- `laptop_provisioning_queue.bmp`
 
-### What We Built
+### Expected Output Fixtures
 
-Level 2 pipeline:
+- one expected triage output per ticket for baseline evaluation
+
+## Level 2 Architecture
 
 ```text
 Ticket Files + Support Docs + Raw Images
@@ -194,16 +176,17 @@ Ticket Files + Support Docs + Raw Images
 -> Chunking
 -> Embeddings
 -> Chroma Vector Store
--> Retriever
 -> Issue Classification
--> Triage Prompt
+-> Source-Aware Retrieval
+-> Structured Triage Prompt
 -> LLM Recommendation
--> Evaluation Against Expected Output
+-> Deterministic Source Normalization
+-> Evaluation
 ```
 
-### What This Means Practically
+## What Level 2 Does in Practice
 
-When a user enters a ticket file name like:
+When a user enters a ticket file name such as:
 
 ```text
 vpn_login_issue.txt
@@ -211,124 +194,27 @@ vpn_login_issue.txt
 
 the system:
 
-1. finds the corresponding ticket content
-2. classifies the issue into one category
-3. retrieves semantically related evidence from the mixed corpus
-4. builds a structured support context
-5. generates a triage-style response:
+1. loads the selected ticket
+2. extracts the attached image name if present
+3. OCRs the linked image and keeps it available as direct evidence
+4. classifies the issue into a support category
+5. retrieves support documents, OCR evidence, and ticket context
+6. builds a structured context for the model
+7. generates a triage response with:
    - issue category
    - likely cause
    - recommended next step
    - sources
-6. compares the generated output with the expected output fixture
+8. normalizes the final `Sources:` line in application code
+9. compares the result against an expected output fixture
 
-### Why This Is a Stronger Enterprise Design
+## What We Improved During Level 2
 
-This is no longer simple Q&A.
+This part is important because the current Level 2 system was not built in one shot. It improved through several deliberate architecture upgrades.
 
-It becomes:
+### 1. Started with a clean modular design
 
-- workflow-driven
-- multimodal
-- source-aware
-- evaluation-ready
-- more realistic for support operations
-
-That is why Level 2 looks much more like a mid-level or senior enterprise AI project.
-
-## Detailed Flow of the Current Level 2 System
-
-Below is the actual flow that is working right now.
-
-### Step 1: Load Text Data
-
-The system loads:
-
-- support docs
-- ticket files
-
-These are normalized into LangChain `Document` objects.
-
-### Step 2: Process Raw Images with OCR
-
-The system reads real image files from the image folder and runs OCR using:
-
-- `Pillow`
-- `pytesseract`
-- system-level `tesseract-ocr`
-
-The extracted text is then converted into `Document` objects.
-
-### Step 3: Unify the Corpus
-
-The system combines:
-
-- support docs
-- tickets
-- OCR-derived image text
-
-into one retrieval corpus.
-
-### Step 4: Chunk the Documents
-
-The unified documents are chunked to improve retrieval granularity.
-
-### Step 5: Build Embeddings and Vector Store
-
-The chunked documents are embedded using Ollama embeddings and stored in Chroma.
-
-### Step 6: Select a Ticket
-
-The user enters a ticket file name such as:
-
-```text
-vpn_login_issue.txt
-```
-
-The system finds that ticket from the loaded ticket documents.
-
-### Step 7: Classify the Issue
-
-The ticket text is classified into one of:
-
-- `vpn_access`
-- `mfa_issue`
-- `account_recovery`
-- `device_provisioning`
-- `repository_access`
-- `unknown`
-
-### Step 8: Retrieve Relevant Evidence
-
-The system uses the ticket text as the retrieval query and fetches the top semantically similar chunks from the mixed corpus.
-
-### Step 9: Generate a Triage Recommendation
-
-The model receives:
-
-- the predicted issue category
-- the original ticket text
-- the retrieved context
-
-and returns a structured triage response.
-
-### Step 10: Evaluate Against Expected Output
-
-The generated result is compared with the expected output fixture for that ticket.
-
-This gives a basic but useful baseline signal for correctness.
-
-## Challenges Faced So Far
-
-This section is important because real engineering projects are not only about what works. They are also about what problems appeared and how they were handled.
-
-### 1. Challenge: Starting with a clean architecture instead of one big script
-
-If everything is written in a single file, the project becomes hard to understand, hard to debug, and hard to explain in interviews.
-
-#### What we did
-
-We separated responsibilities into modules such as:
+We split the project into modules such as:
 
 - `config.py`
 - `loaders.py`
@@ -343,164 +229,115 @@ We separated responsibilities into modules such as:
 - `evaluator.py`
 - `main.py`
 
-#### Why this was the right approach
+This made the project:
 
-Because it reflects how real systems are designed:
+- easier to debug
+- easier to explain
+- easier to improve step by step
 
-- configuration is separate
-- ingestion is separate
-- OCR is separate
-- retrieval is separate
-- classification is separate
-- generation is separate
-- orchestration is separate
+### 2. Moved from image descriptions to real OCR
 
-### 2. Challenge: Handling images in a practical free-cost way
+Level 1 used text descriptions for images.
+Level 2 moved to real raw image files plus OCR using:
 
-At first, Level 1 used text descriptions for image-related knowledge.
+- `Pillow`
+- `pytesseract`
+- system `tesseract-ocr`
 
-That was useful for learning but not truly multimodal.
+This made the project meaningfully multimodal while still staying local-first and low-cost.
 
-#### What we changed
+### 3. Learned the difference between Python wrappers and system binaries
 
-For Level 2, we moved to real raw image files and added OCR-based extraction.
-
-#### Why this approach was chosen
-
-We considered the broader multimodal options:
-
-- manual image descriptions
-- OCR extraction
-- direct vision-model reasoning
-
-We chose OCR because:
-
-- it is practical for text-heavy screenshots
-- it is cheaper and easier to operate locally
-- it teaches a realistic enterprise workflow
-- it avoids unnecessary paid dependencies
-
-### 3. Challenge: `pytesseract` alone was not enough
-
-This was a real runtime issue.
-
-The Python package `pytesseract` was installed, but OCR still could not work until the system-level `tesseract-ocr` binary was installed.
-
-#### What we did
-
-We installed:
+`pytesseract` alone was not enough.
+OCR only worked after installing the actual system binary:
 
 ```bash
 sudo apt install tesseract-ocr
 ```
 
-#### Why this matters
+This was an important practical engineering lesson.
 
-This is an important practical engineering lesson:
+### 4. Improved retrieval beyond simple top-k similarity
 
-some Python libraries are only wrappers and still depend on system tools.
+The first retrieval version over-weighted tickets because ticket text naturally looks similar to other ticket text.
 
-### 4. Challenge: Retrieval quality in Level 2 is currently mixed
+We then improved the system by moving through these retrieval ideas:
 
-The system works end to end, but retrieval currently returns a mix of:
+- simple unified retrieval
+- reranking by source type
+- source-specific retrieval
+- support-document retrieval with stronger evidence balancing
+- support-document retrieval using both ticket text and OCR text from the attached image
 
-- relevant ticket
-- semantically related tickets
-- relevant support doc
+This made authoritative support docs much more likely to appear in the final context.
 
-instead of strongly prioritizing authoritative support knowledge.
+### 5. Added explicit ticket-to-image linking
 
-#### What happened
+Instead of only hoping retrieval would find the right OCR evidence, the system now:
 
-For the VPN ticket test, retrieval brought back:
+- reads `Attached Image:` from the selected ticket
+- finds the OCR document for that exact image
+- injects that case-linked image evidence into the final context
 
-- the selected VPN ticket
-- other semantically similar tickets
-- one very relevant support guide
+This made the Level 2 flow much more realistic for enterprise support use cases.
 
-#### Why this happens
+### 6. Strengthened prompt quality
 
-Because the current retrieval design uses:
+The prompt was iteratively improved to better control:
 
-- a unified vector store
-- simple top-k semantic retrieval
+- grounding
+- structured output
+- source formatting
+- complete next-step responses
 
-This is a strong baseline, but not yet source-prioritized.
+This reduced output drift and made the response more operational.
 
-#### What we learned
+### 7. Moved source attribution into application logic
 
-This taught us that:
+Prompt-only source citation was not reliable enough.
 
-- a system can work technically
-- but still need retrieval ranking improvements
+So we introduced deterministic source handling in `main.py`.
+The app now builds the final `Sources:` line using a policy-aware rule:
 
-#### Planned improvements
+- include relevant support docs
+- include the exact attached image source
+- avoid noisy over-citation
 
-Later we can improve this with:
+This is a more production-style design than leaving critical metadata fields entirely to the LLM.
 
-- metadata-aware retrieval
-- source-type preference
-- reranking
-- hybrid retrieval
+### 8. Upgraded evaluation from exact-match-only to richer comparison
 
-### 5. Challenge: Source citation in Level 2 is not yet ideal
+The evaluation layer now includes:
 
-The generated triage response sometimes cites only the ticket file, even when the recommendation clearly comes from a support document.
-
-#### Why this happens
-
-Because source attribution depends on:
-
-- retrieval balance
-- prompt clarity
-- model obedience to source instructions
-
-#### What we learned
-
-Good RAG output depends not only on retrieval, but also on:
-
-- context quality
-- output constraints
-- citation control
-
-### 6. Challenge: Exact-match evaluation is too strict
-
-The evaluator currently compares generated and expected output using exact match after simple normalization.
-
-#### Why this is useful
-
-It gives us a baseline evaluation contract.
-
-#### Why it is limited
-
-Two outputs can be semantically correct but still differ in wording.
-
-#### What we plan later
-
-We may later add:
-
+- whole-output exact match
+- normalized comparison
 - field-wise comparison
-- softer semantic evaluation
-- source-specific checks
-- MLflow experiment logging
+- source overlap analysis
 
-## Why the Current Design Still Makes Sense
+This gives a much fairer and more informative view of system quality.
 
-Even with the current limitations, the project is in a strong place because:
+## Current Level 2 Strengths
 
-- the system is fully modular
-- Level 1 works
-- Level 2 works end to end
-- OCR is functioning
-- classification works
-- triage response generation works
-- evaluation exists
+The current Level 2 system now demonstrates:
 
-That means we have a working baseline architecture.
+- raw image OCR
+- mixed evidence ingestion
+- support issue classification
+- multimodal retrieval
+- source-aware retrieval refinement
+- exact ticket-to-image evidence linking
+- deterministic source attribution
+- structured triage generation
+- evaluation with source coverage metrics
 
-In real engineering, building a clean baseline and then improving it step by step is better than trying to prematurely design the perfect system.
+One representative run for `vpn_login_issue.txt` now produces:
 
-## Technologies Used So Far
+- correct issue category
+- correct expected source set
+- full source overlap coverage
+- a likely cause and next step that are semantically close to the reference output
+
+## Technologies Used
 
 - Python
 - LangChain
@@ -510,58 +347,40 @@ In real engineering, building a clean baseline and then improving it step by ste
 - Pillow
 - pytesseract
 - python-dotenv
-- MLflow added as a planned experiment-tracking dependency for the next evaluation stage
 
-## Why This Repository Is Useful for Client Rounds
+## Why This Repository Is Strong for Interviews and Client Rounds
 
-This repository is not positioned as a toy chatbot project.
+This repository is not framed as a toy chatbot.
 
 It demonstrates:
 
 - enterprise problem framing
-- modular architecture
-- retrieval-augmented generation
-- multimodal ingestion through OCR
-- support triage design
-- structured LLM outputs
+- modular design
+- RAG fundamentals
+- multimodal evidence handling
+- workflow-oriented AI output
+- grounded recommendations
 - evaluation thinking
-- cost-conscious local-first engineering
+- iterative architecture improvement
 
-This is exactly the kind of framing that makes a stronger impression in:
+That makes it easier to discuss:
 
-- client demonstrations
-- architecture discussions
-- AI/ML interviews
-- solution design rounds
+- why the system was designed this way
+- how retrieval quality was improved
+- how OCR was integrated
+- why some responsibilities were moved from prompts into code
+- how evaluation matured along with the application
 
-## What Is Next
+## Important Note on the Commit History
 
-The next evolution steps are likely to include:
-
-1. better Level 2 retrieval quality
-- prioritize support docs more strongly
-- make retrieval more source-aware
-
-2. stronger evaluation
-- field-level comparison
-- better correctness checks
-- MLflow logging
-
-3. advanced orchestration
-- move into Level 3
-- introduce more agentic workflow design
-- eventually bring in LangGraph where it adds real value
-
-## Important Note
-
-This repository is being built incrementally and committed in stages on purpose.
+This repository is being built in stages on purpose.
 
 The intention is:
 
 - build
 - understand
-- evaluate
 - improve
-- commit each meaningful stage
+- evaluate
+- commit each meaningful milestone
 
-That means the commit history itself reflects the engineering journey, not just the final result.
+So the git history reflects the learning and engineering journey, not just the final state.
